@@ -11,4 +11,5 @@
     <string name="login">Login</string>
     <string name="sky_capital_rentals_header">Sky Capital Rentals</string>
     <string name="daniel_teo">Daniel Teo</string>
+    <string name="car_image_desc">profile image of a car</string>
 </resources>
