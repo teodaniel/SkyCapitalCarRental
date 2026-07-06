@@ -9,4 +9,6 @@
     <string name="email_hint">name@example.com</string>
     <string name="password_hint">Enter your password</string>
     <string name="login">Login</string>
+    <string name="sky_capital_rentals_header">Sky Capital Rentals</string>
+    <string name="daniel_teo">Daniel Teo</string>
 </resources>

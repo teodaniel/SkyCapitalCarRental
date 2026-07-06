@@ -17,7 +17,6 @@ public class LoginActivity extends AppCompatActivity {
 
     private EditText editTextEmailAddress;
     private EditText editTextPassword;
-    private Button buttonLogin;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,34 +29,53 @@ public class LoginActivity extends AppCompatActivity {
             return insets;
         });
 
+        // Dynamic Padding Listener
+        View mainLayout = findViewById(R.id.main);
+        ViewCompat.setOnApplyWindowInsetsListener(mainLayout, (v, insets) -> {
+            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
+
+            int density = (int) getResources().getDisplayMetrics().density;
+            int customPadding = 24 * density; // Converts 24dp into physical pixels
+
+            v.setPadding(
+                    systemBars.left + customPadding,
+                    systemBars.top + customPadding,
+                    systemBars.right + customPadding,
+                    systemBars.bottom + customPadding
+            );
+            return insets;
+        });
+
         editTextEmailAddress = findViewById(R.id.editTextEmailAddress);
         editTextPassword = findViewById(R.id.editTextPassword);
-        buttonLogin = findViewById(R.id.buttonLogin);
+        Button buttonLogin = findViewById(R.id.buttonLogin);
 
-        buttonLogin.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String email = editTextEmailAddress.getText().toString().trim();
-                String password = editTextPassword.getText().toString().trim();
+        buttonLogin.setOnClickListener(v -> {
+            String email = editTextEmailAddress.getText().toString().trim();
+            String password = editTextPassword.getText().toString().trim();
 
-                // Validate that the fields are not empty
-                if (email.isEmpty() || password.isEmpty()) {
-                    Toast.makeText(LoginActivity.this, "Please fill in all fields", Toast.LENGTH_SHORT).show();
-                    return;
-                }
+            // Validate login fields
+            if (email.isEmpty()) {
+                Toast.makeText(LoginActivity.this, "Please fill in your email", Toast.LENGTH_SHORT).show();
+                return;
+            }
 
-                // Simple hardcoded authentication check
-                if (email.equals("admin@gmail.com") && password.equals("password123")) {
-                    Toast.makeText(LoginActivity.this, "Login Successful!", Toast.LENGTH_SHORT).show();
+            if (password.isEmpty()) {
+                Toast.makeText(LoginActivity.this, "Please fill in your password", Toast.LENGTH_SHORT).show();
+                return;
+            }
 
-                    Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-                    startActivity(intent);
+            // Simple hardcoded authentication check
+            if (email.equals("admin@gmail.com") && password.equals("password123")) {
+                Toast.makeText(LoginActivity.this, "Login Successful!", Toast.LENGTH_SHORT).show();
 
-                    finish();
+                Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                startActivity(intent);
 
-                } else {
-                    Toast.makeText(LoginActivity.this, "Invalid credentials. Try again.", Toast.LENGTH_SHORT).show();
-                }
+                finish();
+
+            } else {
+                Toast.makeText(LoginActivity.this, "Invalid credentials. Try again.", Toast.LENGTH_SHORT).show();
             }
         });
     }
