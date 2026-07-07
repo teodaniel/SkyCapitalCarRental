@@ -22,116 +22,132 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:padding="12dp">
+            android:layout_height="wrap_content"
+            android:padding="16dp">
 
-            <!-- Card Top Section -->
-            <LinearLayout
-                android:id="@+id/cardTopSectionContainer"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal"
-                app:layout_constraintBottom_toTopOf="@+id/cardBottomSectionContainer"
+            <!-- ======================================================= -->
+            <!-- RIGHT SIDE IMAGE: Constrained with explicit 350:250 ratio -->
+            <!-- ======================================================= -->
+            <ImageView
+                android:id="@+id/carProfileImage"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:contentDescription="@string/car_image_desc"
+                android:scaleType="centerCrop"
+                app:layout_constraintDimensionRatio="350:250"
+                app:layout_constraintWidth_percent="0.4"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toTopOf="@id/carCardDivider"
+                app:srcCompat="@drawable/mystery_vehicle_l"
+                tools:srcCompat="@drawable/mystery_vehicle_l" />
+
+            <!-- ======================================================= -->
+            <!-- LEFT SIDE TEXT STACK: Chains directly to the Image     -->
+            <!-- ======================================================= -->
+            <TextView
+                android:id="@+id/carMakeAndModel"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="12dp"
+                android:text="Make Model"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toStartOf="@+id/carProfileImage"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
+                app:layout_constraintTop_toTopOf="parent" />
 
+            <TextView
+                android:id="@+id/carBodyType"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:layout_marginEnd="12dp"
+                android:text="Body Type"
+                app:layout_constraintEnd_toStartOf="@+id/carProfileImage"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/carMakeAndModel" />
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical">
+            <androidx.constraintlayout.helper.widget.Flow
+                android:id="@+id/iconFlow"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="12dp"
+                app:constraint_referenced_ids="carSeatingAmount,carLuggageAmount,carTransmissionType,carFuelType"
+                app:flow_horizontalStyle="packed"
+                app:flow_horizontalBias="0"
+                app:flow_horizontalGap="12dp"
+                app:flow_verticalGap="4dp"
+                app:flow_wrapMode="chain"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/carProfileImage"
+                app:layout_constraintTop_toBottomOf="@id/carBodyType" />
 
-                    <TextView
-                        android:id="@+id/carMakeAndModel"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Make Model" />
+            <TextView
+                android:id="@+id/carSeatingAmount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="5"
+                app:drawableStartCompat="@drawable/baseline_person_24" />
 
-                    <TextView
-                        android:id="@+id/carBodyType"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Body Type" />
+            <TextView
+                android:id="@+id/carLuggageAmount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="2"
+                app:drawableStartCompat="@drawable/outline_luggage_24" />
 
-                    <HorizontalScrollView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:scrollbars="none">
+            <TextView
+                android:id="@+id/carTransmissionType"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Auto"
+                app:drawableStartCompat="@drawable/auto_transmission_24px" />
 
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:orientation="horizontal">
+            <TextView
+                android:id="@+id/carFuelType"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Petrol"
+                app:drawableStartCompat="@drawable/baseline_local_gas_station_24" />
 
-                            <TextView
-                                android:id="@+id/carSeatingAmount"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="5"
-                                app:drawableStartCompat="@drawable/baseline_person_24" />
-
-                            <TextView
-                                android:id="@+id/carLuggageAmount"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="2"
-                                app:drawableStartCompat="@drawable/outline_luggage_24" />
-
-                            <TextView
-                                android:id="@+id/carTransmissionType"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="Auto"
-                                app:drawableStartCompat="@drawable/gear_shift" />
-
-                            <TextView
-                                android:id="@+id/carFuelType"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="Petrol"
-                                app:drawableStartCompat="@drawable/baseline_local_gas_station_24" />
-                        </LinearLayout>
-                    </HorizontalScrollView>
-
-                </LinearLayout>
-
-
-                <ImageView
-                    android:id="@+id/carProfileImage"
-                    android:layout_width="140dp"
-                    android:layout_height="100dp"
-                    android:layout_gravity="center_vertical"
-                    android:layout_marginStart="12dp"
-                    android:adjustViewBounds="true"
-                    android:contentDescription="@string/car_image_desc"
-                    android:scaleType="fitCenter"
-                    app:srcCompat="@drawable/mystery_vehicle_l" />
-            </LinearLayout>
-
-
-            <!-- Card Bottom Section -->
-            <RelativeLayout
-                android:id="@+id/cardBottomSectionContainer"
+            <com.google.android.material.divider.MaterialDivider
+                android:id="@+id/carCardDivider"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:layout_constraintBottom_toBottomOf="parent"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                app:dividerColor="@color/material_dynamic_neutral90"
+                app:dividerInsetEnd="16dp"
+                app:dividerInsetStart="16dp"
+                app:dividerThickness="1dp"
+                app:layout_constraintBottom_toTopOf="@+id/ratingText"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/cardTopSectionContainer">
+                app:layout_constraintTop_toBottomOf="@+id/iconFlow" />
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentStart="true"
-                    android:text="Left Aligned" />
+            <!-- ======================================================= -->
+            <!-- BOTTOM SECTION: Standard constraints to push items apart -->
+            <!-- ======================================================= -->
+            <TextView
+                android:id="@+id/ratingText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="Rating"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/carCardDivider" />
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentEnd="true"
-                    android:text="Right Aligned" />
-            </RelativeLayout>
+            <TextView
+                android:id="@+id/priceText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="S$ Price / Day"
+                app:layout_constraintBottom_toBottomOf="@id/ratingText"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@id/ratingText" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
