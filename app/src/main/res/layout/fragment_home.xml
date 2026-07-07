@@ -8,11 +8,12 @@
     tools:context=".HomeFragment">
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/CarsRecyclerView"
+        android:id="@+id/carsRecyclerView"
         android:layout_width="409dp"
         android:layout_height="729dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:contentDescription="@string/cars_for_rent_list_desc"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

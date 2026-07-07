@@ -3,23 +3,24 @@ package com.example.skycapitalcarrentalapplication;
 import java.util.List;
 
 public class CarModel {
-    private int id;
-    private String makeAndModel;            // Toyota Corolla
-    private String bodyType;        // SUV, Sedan, Hatchback
-    private String color;
-    private int imageResId;        // or a drawable resource name
+    private final int id;
+    private final String makeAndModel;            // Toyota Corolla
+    private final String bodyType;        // SUV, Sedan, Hatchback
+    private final String color;
+    private final int imageResId;        // or a drawable resource name
 
     // Performance
-    private String fuelType;        // Petrol, Diesel, Hybrid, Electric
-    private String transmission;    // Automatic, Manual
-    private double engineSize;      // in litres, e.g. 1.8
+    private final String fuelType;        // Petrol, Diesel, Hybrid, Electric
+    private final String transmission;    // Automatic, Manual
+    private final double engineSize;      // in litres, e.g. 1.8
 
     // Capacity & comfort
-    private int seats;
-    private int luggageCapacity;    // number of large bags
+    private final int seats;
+    private final int luggageCapacity;    // number of large bags
 
     // Features
-    private List<String> features;  // ["Bluetooth", "GPS", "Backup Camera"]
+    private final List<String> features;  // ["Bluetooth", "GPS", "Backup Camera"]
+    private final double rating;
 
     // Rental terms
     private double pricePerDay;
@@ -30,7 +31,7 @@ public class CarModel {
     private boolean available;
     private String pickupLocation;
 
-    public CarModel(int id, String makeAndModel, String bodyType, String color, int imageResId, String fuelType, String transmission, double engineSize, int seats, int luggageCapacity, List<String> features, double pricePerDay, double deposit, String fuelPolicy, boolean available, String pickupLocation) {
+    public CarModel(int id, String makeAndModel, String bodyType, String color, int imageResId, String fuelType, String transmission, double engineSize, int seats, int luggageCapacity, List<String> features, double rating, double pricePerDay, double deposit, String fuelPolicy, boolean available, String pickupLocation) {
         this.id = id;
         this.makeAndModel = makeAndModel;
         this.bodyType = bodyType;
@@ -42,6 +43,7 @@ public class CarModel {
         this.seats = seats;
         this.luggageCapacity = luggageCapacity;
         this.features = features;
+        this.rating = rating;
         this.pricePerDay = pricePerDay;
         this.deposit = deposit;
         this.fuelPolicy = fuelPolicy;
@@ -91,6 +93,10 @@ public class CarModel {
 
     public List<String> getFeatures() {
         return features;
+    }
+
+    public double getRating() {
+        return rating;
     }
 
     public double getPricePerDay() {
