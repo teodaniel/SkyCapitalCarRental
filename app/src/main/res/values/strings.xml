@@ -5,7 +5,8 @@
     <string name="home">Home</string>
     <string name="contact">Contact</string>
     <string name="profile">Profile</string>
-    <string name="log_in">Log In</string>
+    <string name="log_in_title_1">Welcome to</string>
+    <string name="log_in_title_2">Sky Capital Car Rental</string>
     <string name="email_hint">name@example.com</string>
     <string name="password_hint">Enter your password</string>
     <string name="login">Login</string>
@@ -13,6 +14,8 @@
     <string name="daniel_teo">Daniel Teo</string>
     <string name="car_image_desc">profile image of a car</string>
     <string name="cars_for_rent_list_desc">List of cards showing cars for rent</string>
+    <string name="car_rental_app_logo_desc">Car Rental App Logo</string>
+    <string name="car_body_type_placeholder">Body Type</string>
 
     <string-array name="car_make_and_model">
         <item>Audi Q3</item>
