@@ -26,7 +26,7 @@ public final class CarRepository {
                 5, 3,
                 Arrays.asList("Bluetooth", "GPS", "Backup Camera", "Apple CarPlay", "Cruise Control"), 4.7,
                 72.0, 300.0, "Full to Full",
-                true, "Narita Airport"));
+                true, "Changi Airport"));
 
         cars.add(new CarModel(
                 2, "BMW 4 Series Gran Coupe", "Sedan", "Red",
@@ -35,7 +35,7 @@ public final class CarRepository {
                 5, 3,
                 Arrays.asList("Bluetooth", "GPS", "Backup Camera", "Sunroof", "Leather Seats", "Apple CarPlay"), 4.8,
                 95.0, 400.0, "Full to Full",
-                true, "Haneda Airport"));
+                true, "Toa Payoh Branch"));
 
         cars.add(new CarModel(
                 3, "BYD Atto 3", "SUV", "Black",
@@ -44,7 +44,7 @@ public final class CarRepository {
                 5, 3,
                 Arrays.asList("Bluetooth", "GPS", "Backup Camera", "Apple CarPlay", "Android Auto", "360 Camera"), 4.6,
                 68.0, 350.0, "Full Charge to Full Charge",
-                true, "Shinjuku Branch"));
+                true, "Queensway Branch"));
 
         cars.add(new CarModel(
                 4, "Daihatsu Move", "Hatchback", "Light Blue",
@@ -53,7 +53,7 @@ public final class CarRepository {
                 4, 1,
                 Arrays.asList("Bluetooth", "GPS", "Backup Camera"), 4.4,
                 28.0, 120.0, "Full to Full",
-                true, "Sapporo Branch"));
+                true, "Jurong West Branch"));
 
         cars.add(new CarModel(
                 5, "Ford Bronco", "SUV", "White",
@@ -62,7 +62,7 @@ public final class CarRepository {
                 5, 3,
                 Arrays.asList("Bluetooth", "GPS", "Backup Camera", "Apple CarPlay", "Android Auto", "4WD"), 4.6,
                 98.0, 450.0, "Full to Full",
-                false, "Fukuoka Airport"));
+                false, "Bedok Branch"));
 
         cars.add(new CarModel(
                 6, "Ford Mustang", "Coupe", "Black",
@@ -71,7 +71,7 @@ public final class CarRepository {
                 4, 2,
                 Arrays.asList("Bluetooth", "GPS", "Backup Camera", "Apple CarPlay", "Leather Seats"), 4.7,
                 125.0, 600.0, "Full to Full",
-                true, "Osaka Namba Branch"));
+                true, "Choa Chu Kang Branch"));
 
         cars.add(new CarModel(
                 7, "Honda Fit", "Hatchback", "Silver",
@@ -80,7 +80,7 @@ public final class CarRepository {
                 5, 2,
                 Arrays.asList("Bluetooth", "GPS", "Backup Camera", "Apple CarPlay"), 4.5,
                 40.0, 150.0, "Full to Full",
-                true, "Narita Airport"));
+                true, "Changi Airport"));
 
         cars.add(new CarModel(
                 8, "Honda Freed", "Minivan", "DarkBlue",
@@ -89,7 +89,7 @@ public final class CarRepository {
                 7, 3,
                 Arrays.asList("Bluetooth", "GPS", "Backup Camera", "Sliding Doors", "Apple CarPlay"), 4.7,
                 56.0, 220.0, "Full to Full",
-                true, "Kansai Airport"));
+                true, "Bishan Branch"));
 
         cars.add(new CarModel(
                 9, "Honda Freed 2", "Minivan", "Light Blue",
@@ -98,7 +98,7 @@ public final class CarRepository {
                 7, 3,
                 Arrays.asList("Bluetooth", "GPS", "Backup Camera", "Sliding Doors"), 4.8,
                 52.0, 220.0, "Full to Full",
-                false, "Kansai Airport"));
+                false, "Bishan Branch"));
 
         cars.add(new CarModel(
                 10, "Honda Freed", "Minivan", "White",
@@ -107,7 +107,7 @@ public final class CarRepository {
                 6, 3,
                 Arrays.asList("Bluetooth", "GPS", "Sliding Doors"), 4.4,
                 50.0, 200.0, "Full to Full",
-                true, "Nagoya Branch"));
+                true, "Bukit Batok Branch"));
 
         cars.add(new CarModel(
                 11, "Honda N-Box II", "Hatchback", "White",
@@ -116,7 +116,7 @@ public final class CarRepository {
                 4, 1,
                 Arrays.asList("Bluetooth", "GPS", "Backup Camera", "Sliding Doors"), 4.5,
                 33.0, 130.0, "Full to Full",
-                true, "Sapporo Branch"));
+                true, "Jurong West Branch"));
 
         cars.add(new CarModel(
                 12, "Honda N-Box", "Hatchback", "Baby Blue",
@@ -125,7 +125,7 @@ public final class CarRepository {
                 4, 1,
                 Arrays.asList("Bluetooth", "GPS", "Backup Camera"), 4.3,
                 32.0, 130.0, "Full to Full",
-                true, "Narita Airport"));
+                true, "Changi Airport"));
 
         cars.add(new CarModel(
                 13, "Honda N-Box", "Hatchback", "White",
@@ -134,7 +134,7 @@ public final class CarRepository {
                 4, 1,
                 Arrays.asList("Bluetooth", "GPS"), 4.5,
                 32.0, 130.0, "Full to Full",
-                false, "Haneda Airport"));
+                false, "Toa Payoh Branch"));
 
         cars.add(new CarModel(
                 14, "Honda Odyssey", "Minivan", "White",
@@ -143,7 +143,7 @@ public final class CarRepository {
                 7, 4,
                 Arrays.asList("Bluetooth", "GPS", "Backup Camera", "Sliding Doors", "Leather Seats", "Apple CarPlay"), 4.6,
                 78.0, 300.0, "Full to Full",
-                true, "Haneda Airport"));
+                true, "Toa Payoh Branch"));
 
         cars.add(new CarModel(
                 15, "Honda Spike", "Minivan", "White",
@@ -152,7 +152,7 @@ public final class CarRepository {
                 5, 3,
                 Arrays.asList("Bluetooth", "GPS", "Sliding Doors"), 4.8,
                 44.0, 180.0, "Full to Full",
-                true, "Nagoya Branch"));
+                true, "Bukit Batok Branch"));
 
         cars.add(new CarModel(
                 16, "Honda Stepwagon", "Minivan", "Black",
@@ -161,7 +161,7 @@ public final class CarRepository {
                 8, 4,
                 Arrays.asList("Bluetooth", "GPS", "Backup Camera", "Sliding Doors", "Apple CarPlay"), 3.9,
                 62.0, 250.0, "Full to Full",
-                true, "Osaka Namba Branch"));
+                true, "Choa Chu Kang Branch"));
 
         cars.add(new CarModel(
                 17, "Honda Vezel", "SUV", "Green",
@@ -170,7 +170,7 @@ public final class CarRepository {
                 5, 2,
                 Arrays.asList("Bluetooth", "GPS", "Backup Camera", "Apple CarPlay", "Cruise Control"), 4.7,
                 52.0, 200.0, "Full to Full",
-                true, "Narita Airport"));
+                true, "Changi Airport"));
 
         cars.add(new CarModel(
                 18, "Mazda 6 Atenza", "Sedan", "Grey",
@@ -179,7 +179,7 @@ public final class CarRepository {
                 5, 3,
                 Arrays.asList("Bluetooth", "GPS", "Backup Camera", "Leather Seats", "Apple CarPlay"), 4.7,
                 60.0, 250.0, "Full to Full",
-                true, "Fukuoka Airport"));
+                true, "Bedok Branch"));
 
         cars.add(new CarModel(
                 19, "Mazda 2", "Hatchback", "Silver",
@@ -188,7 +188,7 @@ public final class CarRepository {
                 5, 2,
                 Arrays.asList("Bluetooth", "GPS", "Backup Camera"), 4.2,
                 36.0, 150.0, "Full to Full",
-                true, "Shinjuku Branch"));
+                true, "Queensway Branch"));
 
         cars.add(new CarModel(
                 20, "Mazda 3", "Sedan", "White",
@@ -197,7 +197,7 @@ public final class CarRepository {
                 5, 2,
                 Arrays.asList("Bluetooth", "GPS", "Backup Camera", "Cruise Control"), 4.1,
                 45.0, 180.0, "Full to Full",
-                true, "Kansai Airport"));
+                true, "Bishan Branch"));
 
         cars.add(new CarModel(
                 21, "Mazda Biante", "Minivan", "Black",
@@ -206,7 +206,7 @@ public final class CarRepository {
                 8, 3,
                 Arrays.asList("Bluetooth", "GPS", "Sliding Doors"), 4.5,
                 55.0, 220.0, "Full to Full",
-                false, "Nagoya Branch"));
+                false, "Bukit Batok Branch"));
 
         cars.add(new CarModel(
                 22, "Mazda CX-5 2013", "SUV", "White",
@@ -215,7 +215,7 @@ public final class CarRepository {
                 5, 3,
                 Arrays.asList("Bluetooth", "GPS", "Backup Camera", "Cruise Control"), 4.7,
                 45.0, 200.0, "Full to Full",
-                true, "Sapporo Branch"));
+                true, "Jurong West Branch"));
 
         cars.add(new CarModel(
                 23, "Mazda CX-3 2021", "SUV", "White",
@@ -224,7 +224,7 @@ public final class CarRepository {
                 5, 2,
                 Arrays.asList("Bluetooth", "GPS", "Backup Camera", "Apple CarPlay"), 4.5,
                 48.0, 200.0, "Full to Full",
-                true, "Narita Airport"));
+                true, "Changi Airport"));
 
         cars.add(new CarModel(
                 24, "Mazda CX-5 2024", "SUV", "White",
@@ -233,7 +233,7 @@ public final class CarRepository {
                 5, 3,
                 Arrays.asList("Bluetooth", "GPS", "Backup Camera", "Apple CarPlay", "Android Auto", "Leather Seats"), 4.2,
                 66.0, 280.0, "Full to Full",
-                true, "Haneda Airport"));
+                true, "Toa Payoh Branch"));
 
         cars.add(new CarModel(
                 25, "Mazda Demio", "Hatchback", "Silver",
@@ -242,7 +242,7 @@ public final class CarRepository {
                 5, 2,
                 Arrays.asList("Bluetooth", "GPS", "Backup Camera"), 4.3,
                 35.0, 150.0, "Full to Full",
-                true, "Osaka Namba Branch"));
+                true, "Choa Chu Kang Branch"));
 
         cars.add(new CarModel(
                 26, "Mazda Premacy 2019", "Minivan", "Red",
@@ -251,7 +251,7 @@ public final class CarRepository {
                 7, 3,
                 Arrays.asList("Bluetooth", "GPS", "Backup Camera", "Sliding Doors"), 4.5,
                 50.0, 200.0, "Full to Full",
-                true, "Kansai Airport"));
+                true, "Bishan Branch"));
 
         cars.add(new CarModel(
                 28, "Mercedes-Benz B-Class", "Hatchback", "Black",
@@ -260,7 +260,7 @@ public final class CarRepository {
                 5, 2,
                 Arrays.asList("Bluetooth", "GPS", "Backup Camera", "Leather Seats", "Apple CarPlay", "Cruise Control"), 4.2,
                 70.0, 300.0, "Full to Full",
-                true, "Shinjuku Branch"));
+                true, "Queensway Branch"));
 
         cars.add(new CarModel(
                 29, "Mercedes-Benz SL-Class", "Convertible", "Silver",
@@ -269,8 +269,21 @@ public final class CarRepository {
                 2, 1,
                 Arrays.asList("Bluetooth", "GPS", "Backup Camera", "Leather Seats", "Apple CarPlay", "Convertible Roof"), 4.9,
                 150.0, 800.0, "Full to Full",
-                true, "Haneda Airport"));
+                true, "Toa Payoh Branch"));
 
         return cars;
+    }
+
+    /**
+     * Finds a car by its unique id, or returns null if none matches.
+     * Used by the detail screen to re-fetch the car passed via Intent.
+     */
+    public static CarModel findById(int id) {
+        for (CarModel car : getCars()) {
+            if (car.getId() == id) {
+                return car;
+            }
+        }
+        return null;
     }
 }

@@ -1,5 +1,6 @@
 package com.example.skycapitalcarrentalapplication;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -68,14 +69,10 @@ public class HomeFragment extends Fragment {
         recyclerView.setLayoutManager(new LinearLayoutManager(requireContext()));
 
         CarsRecyclerViewAdapter adapter = new CarsRecyclerViewAdapter(car -> {
-            // Runs when a card is tapped (the whole card is the click target).
-            Toast.makeText(requireContext(),
-                    "Clicked: " + car.getMakeAndModel(), Toast.LENGTH_SHORT).show();
 
-            // Later, open the detail screen, e.g.:
-            // Intent intent = new Intent(requireContext(), CarDetailActivity.class);
-            // intent.putExtra("carId", car.getId());
-            // startActivity(intent);
+             Intent intent = new Intent(requireContext(), CarDetailActivity.class);
+             intent.putExtra(CarDetailActivity.EXTRA_CAR_ID, car.getId());
+             startActivity(intent);
         });
 
         recyclerView.setAdapter(adapter);

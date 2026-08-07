@@ -4,7 +4,39 @@
     <color name="white">#FFFFFFFF</color>
     <color name="light_grey">#F5F5F5</color>
 
+    <!-- ================= Navigation ================= -->
     <color name="nav_item_selected">#1C1B1F</color>
     <color name="nav_item_unselected">#8A8A8A</color>
     <color name="nav_indicator">#F0F0F0</color>
+
+    <!-- ================= Material theme ================= -->
+    <color name="md_primary">#6750A4</color>
+    <color name="md_on_primary">#FFFFFF</color>
+    <color name="md_primary_container">#EADDFF</color>
+    <color name="md_on_primary_container">#21005D</color>
+    <color name="md_secondary_container">#E8DEF8</color>
+    <color name="md_on_secondary_container">#1D192B</color>
+    <color name="md_surface">#FEF7FF</color>
+    <color name="md_error">#B3261E</color>
+
+    <!-- ================= Text ================= -->
+    <!-- Titles, values, primary text (#212121: card title, detail title, dialog values) -->
+    <color name="text_primary">#212121</color>
+    <!-- Body copy (detail description) -->
+    <color name="text_body">#424242</color>
+    <!-- Muted spec text on the list card -->
+    <color name="text_muted">#616161</color>
+    <!-- Secondary labels: subtitle, rental-term & dialog labels (#757575) -->
+    <color name="text_secondary">#757575</color>
+
+    <!-- ================= Accent ================= -->
+    <!-- Price / total emphasis (#1565C0) -->
+    <color name="price_accent">#1565C0</color>
+
+    <!-- ================= Surfaces & shadow ================= -->
+    <!-- Content sheet + back-FAB background -->
+    <color name="sheet_surface">#FFFFFF</color>
+    <!-- top_sheet_shadow gradient: darkest edge -> fully transparent -->
+    <color name="sheet_shadow_start">#22000000</color>
+    <color name="sheet_shadow_end">#00000000</color>
 </resources>

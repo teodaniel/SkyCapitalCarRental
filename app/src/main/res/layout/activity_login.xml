@@ -23,7 +23,7 @@
             android:layout_marginStart="48dp"
             android:layout_marginEnd="48dp"
             android:layout_marginBottom="24dp"
-            android:contentDescription="@string/car_rental_app_logo_desc"
+            android:contentDescription="@string/desc_car_rental_app_logo"
             app:srcCompat="@drawable/car_logo_main"
             tools:srcCompat="@drawable/car_logo_main">
         </ImageView>
@@ -40,7 +40,7 @@
             android:id="@+id/loginPageTitle2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/log_in_title_2"
+            android:text="@string/app_name"
             android:textSize="28sp"
             android:textStyle="bold"
             android:layout_marginTop="0dp"
