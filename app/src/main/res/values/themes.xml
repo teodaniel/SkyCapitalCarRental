@@ -19,11 +19,16 @@
         <!-- Error -->
         <item name="colorError">@color/md_error</item>
 
+        <!-- BottomSheet theme -->
+        <item name="bottomSheetDialogTheme">@style/CustomBottomSheetDialogTheme</item>
+
         <!-- System bars: light surface behind, so use dark (light=true) status icons -->
         <item name="android:statusBarColor">@color/md_surface</item>
         <item name="android:windowLightStatusBar">true</item>
     </style>
 
+
+    <!-- Custom Theme for Toolbars -->
     <style name="ToolbarTitle" parent="TextAppearance.Material3.TitleLarge">
         <item name="android:textColor">#1C1B1F</item>
         <item name="android:textSize">20sp</item>
@@ -32,6 +37,8 @@
         <item name="fontFamily">sans-serif-medium</item>
     </style>
 
+
+    <!-- Custom Theme for Navigation Menu -->
     <style name="Widget.App.BottomNavigationView" parent="Widget.Material3.BottomNavigationView">
         <item name="itemIconTint">@color/bottom_nav_colors</item>
         <item name="itemTextColor">@color/bottom_nav_colors</item>
@@ -44,6 +51,23 @@
     <style name="BottomNavTextStyle">
         <item name="android:textSize">12sp</item>
         <item name="fontFamily">sans-serif-medium</item>
+    </style>
+
+
+    <!-- Custom Theme for BottomSheetDialog -->
+    <style name="CustomBottomSheetDialogTheme" parent="Theme.Design.Light.BottomSheetDialog">
+        <item name="bottomSheetStyle">@style/CustomBottomSheetStyle</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <!-- Enables standard background dimming behind the sheet at 50% opacity -->
+        <item name="android:backgroundDimEnabled">true</item>
+        <item name="android:backgroundDimAmount">0.5</item>
+    </style>
+
+    <!-- Style pointing to our rounded corner drawable -->
+    <style name="CustomBottomSheetStyle" parent="Widget.Material3.BottomSheet.Modal">
+        <item name="android:background">@drawable/rounded_top_sheet</item>
+        <item name="backgroundTint">@null</item>
+        <item name="shouldRemoveExpandedCorners">false</item>
     </style>
 
     <!-- Public theme name for Manifest -->

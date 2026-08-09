@@ -1,4 +1,4 @@
-package com.example.skycapitalcarrentalapplication;
+package com.example.skycapitalcarrentalapplication.ui;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,6 +10,8 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.DiffUtil;
 import androidx.recyclerview.widget.ListAdapter;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.skycapitalcarrentalapplication.R;
 
 import java.util.Locale;
 

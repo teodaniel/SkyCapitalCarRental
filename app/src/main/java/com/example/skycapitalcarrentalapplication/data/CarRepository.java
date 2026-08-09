@@ -1,6 +1,6 @@
 package com.example.skycapitalcarrentalapplication.data;
 
-import com.example.skycapitalcarrentalapplication.CarModel;
+import com.example.skycapitalcarrentalapplication.ui.CarModel;
 import com.example.skycapitalcarrentalapplication.R;
 
 import java.util.ArrayList;

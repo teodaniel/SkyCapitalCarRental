@@ -4,6 +4,9 @@
     <color name="white">#FFFFFFFF</color>
     <color name="light_grey">#F5F5F5</color>
 
+    <!-- ============= IC Launcher =============== -->
+    <color name="ic_launcher_background">#F1A358</color>
+
     <!-- ================= Navigation ================= -->
     <color name="nav_item_selected">#1C1B1F</color>
     <color name="nav_item_unselected">#8A8A8A</color>

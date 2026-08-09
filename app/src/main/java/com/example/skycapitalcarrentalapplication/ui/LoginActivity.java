@@ -1,13 +1,13 @@
-package com.example.skycapitalcarrentalapplication;
+package com.example.skycapitalcarrentalapplication.ui;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.Toast;
 
-import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.skycapitalcarrentalapplication.R;
 import com.google.android.material.textfield.TextInputEditText;
 
 public class LoginActivity extends AppCompatActivity {

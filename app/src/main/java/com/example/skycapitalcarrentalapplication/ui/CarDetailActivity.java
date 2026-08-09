@@ -1,4 +1,4 @@
-package com.example.skycapitalcarrentalapplication;
+package com.example.skycapitalcarrentalapplication.ui;
 
 import android.os.Bundle;
 import android.view.View;
@@ -13,6 +13,7 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import com.example.skycapitalcarrentalapplication.R;
 import com.example.skycapitalcarrentalapplication.data.CarRepository;
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.chip.Chip;

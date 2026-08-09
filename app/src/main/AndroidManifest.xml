@@ -12,13 +12,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.SkyCapitalCarRentalApplication">
         <activity
-            android:name=".CarDetailActivity"
+            android:name=".ui.CarDetailActivity"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".ui.MainActivity"
             android:exported="true" />
         <activity
-            android:name=".LoginActivity"
+            android:name=".ui.LoginActivity"
             android:exported="true"
             android:windowSoftInputMode="adjustResize">
             <intent-filter>

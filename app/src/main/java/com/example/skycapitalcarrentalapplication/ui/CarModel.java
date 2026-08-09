@@ -1,4 +1,4 @@
-package com.example.skycapitalcarrentalapplication;
+package com.example.skycapitalcarrentalapplication.ui;
 
 import java.util.List;
 
