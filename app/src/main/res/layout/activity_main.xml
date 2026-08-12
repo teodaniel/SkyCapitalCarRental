@@ -18,7 +18,6 @@
         app:titleCentered="true"
         app:titleTextAppearance="@style/ToolbarTitle"
         app:subtitle="@string/daniel_teo">
-
     </com.google.android.material.appbar.MaterialToolbar>
 
     <FrameLayout

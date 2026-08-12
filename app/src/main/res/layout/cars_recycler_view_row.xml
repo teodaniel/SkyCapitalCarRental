@@ -40,8 +40,8 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintBottom_toTopOf="@id/carCardDivider"
-                app:srcCompat="@drawable/mystery_vehicle_l"
-                tools:srcCompat="@drawable/mystery_vehicle_l" />
+                app:srcCompat="@drawable/car_mystery_vehicle_l"
+                tools:srcCompat="@drawable/car_mystery_vehicle_l" />
 
             <!-- ======================================================= -->
             <!-- LEFT SIDE TEXT STACK: Chains directly to the Image     -->

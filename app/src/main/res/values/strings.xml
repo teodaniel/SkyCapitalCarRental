@@ -10,9 +10,8 @@
     <string name="password_hint">Enter your password</string>
     <string name="login">Login</string>
     <string name="sky_capital_rentals_header">Sky Capital Rentals</string>
-    <string name="daniel_teo">Daniel Teo</string>
+    <string name="daniel_teo">Daniel Teo • S1042141</string>
     <string name="car_body_type_placeholder">Body Type</string>
-
 
     <string name="features">Features</string>
     <string name="desc_cars_for_rent_list">List of cards showing cars for rent</string>
@@ -23,34 +22,28 @@
     <string name="deposit">Deposit</string>
     <string name="fuel_policy">Fuel Policy</string>
 
-    <string-array name="car_make_and_model">
-        <item>Audi Q3</item>
-        <item>BMW 4 Series Gran Coupe</item>
-        <item>BYD Atto 3 2024</item>
-        <item>Daihatsu Move 2025</item>
-        <item>Ford Bronco</item>
-        <item>Ford Mustang 2024</item>
-        <item>Honda Fit 2024</item>
-        <item>Honda Freed 2024</item>
-        <item>Honda Freed 2</item>
-        <item>Honda Freed</item>
-        <item>Honda N-Box II</item>
-        <item>Honda N-Box</item>
-        <item>Honda N-Box</item>
-        <item>Honda Odyssey 2023</item>
-        <item>Honda Spike</item>
-        <item>Honda Stepwagon</item>
-        <item>Honda Vezel 2024</item>
-        <item>Mazda 6 Atenza</item>
-        <item>Mazda 2 2023</item>
-        <item>Mazda 3 2018</item>
-        <item>Mazda Biante</item>
-        <item>Mazda CX5 2013</item>
-        <item>Mazda CX32021</item>
-        <item>Mazda CX5 2024</item>
-        <item>Mazda Demio</item>
-        <item>Mazda Premacy 2019</item>
-        <item>Mercedes Benz B Class</item>
-        <item>Mercedes Benz SL Class</item>
-    </string-array>
+    <!-- Contact Fragment -->
+    <string name="contact_us_content">Have a question or feedback? We would love to hear from you. Our support team is online Monday to Friday, 9:00 AM to 6:00 PM. \n\n Do contact us if you have any questions regarding car rentals.</string>
+    <string name="contact_us_header">Contact Us</string>
+    <string name="contact_email">skyCapitalCarRental@email.com</string>
+    <string name="contact_instagram">"\"@skyCapitalCarRental"</string>
+    <string name="desc_instagram">instagram icon</string>
+    <string name="desc_email">email icon</string>
+    <string name="desc_phone">phone icon</string>
+    <string name="contact_phone_number">+1800 000 1234</string>
+
+    <!-- Search Filter -->
+    <string name="filter_chip_auto">Auto</string>
+    <string name="filter_chip_manual">Manual</string>
+    <string name="filter_chip_transmission">Transmission</string>
+    <string name="filter_chip_petrol">Petrol</string>
+    <string name="filter_chip_diesel">Diesel</string>
+    <string name="filter_chip_electric">Electric</string>
+    <string name="filter_chip_hybrid">Hybrid</string>
+    <string name="filter_chip_fuel_type">Fuel Type</string>
+    <string name="header_filter">Filter</string>
+    <string name="filter_button_reset">Reset</string>
+    <string name="filter_button_apply">Apply</string>
+    <string name="filter_seats">Minimum seats: 1</string>
+    <string name="hint_search_cars">Search cars</string>
 </resources>

@@ -1,6 +1,8 @@
 package com.example.skycapitalcarrentalapplication.ui;
 
 import android.app.Dialog;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 
@@ -51,7 +53,7 @@ public class ContactFragment extends BottomSheetDialogFragment {
                 int heightPixels = windowMetrics.getBounds().height();
 
                 // set the target height directly on the behavior's peek height
-                int targetHeight = (int) (heightPixels * 0.75);
+                int targetHeight = (int) (heightPixels * 0.60);
                 bottomSheetBehavior.setPeekHeight(targetHeight);
 
                 // Apply layout params using a post-runnable to avoid stuttering
@@ -71,5 +73,27 @@ public class ContactFragment extends BottomSheetDialogFragment {
                 });
             }
         }
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
+        // handle when the user clicks on the phone >>> opens up the dialer
+        view.findViewById(R.id.contactPhone).setOnClickListener(v -> {
+            Intent intent = new Intent(Intent.ACTION_DIAL);
+            intent.setData(Uri.parse("tel:+18000001234"));
+            startActivity(intent);
+        });
+
+        // handle when the user clicks on email >>> opens the user's email app, composing to this address
+        view.findViewById(R.id.contactEmail).setOnClickListener(v -> {
+            Intent intent = new Intent(Intent.ACTION_SENDTO);
+            intent.setData(Uri.parse("mailto:skycapitalcarrental@email.com"));
+            startActivity(intent);
+        });
+
+        // handle when the user clicks on instagram >>> TODO: set up the action for instagram
+        view.findViewById(R.id.contactInstagram).setOnClickListener(v -> dismiss());
     }
 }

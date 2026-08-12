@@ -36,7 +36,7 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintWidth_percent="1.0"
-                    tools:src="@drawable/mystery_vehicle_l" />
+                    tools:src="@drawable/car_mystery_vehicle_l" />
             </androidx.constraintlayout.widget.ConstraintLayout>
 
 
