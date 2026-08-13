@@ -16,6 +16,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
+import android.widget.FrameLayout;
 import android.widget.TextView;
 
 import com.example.skycapitalcarrentalapplication.R;
@@ -108,7 +109,9 @@ public class HomeFragment extends Fragment {
     @SuppressLint("DefaultLocale")
     private void showFilterSheet() {
         BottomSheetDialog dialog = new BottomSheetDialog(requireContext());
-        View bottomSheetView = LayoutInflater.from(requireContext()).inflate(R.layout.bottom_sheet_filter, null);
+
+        FrameLayout container = dialog.findViewById(com.google.android.material.R.id.design_bottom_sheet);
+        View bottomSheetView = LayoutInflater.from(requireContext()).inflate(R.layout.search_filter, container, false);
         dialog.setContentView(bottomSheetView);
 
         ChipGroup fuelGroup = bottomSheetView.findViewById(R.id.chipGroupFuel);
@@ -169,8 +172,6 @@ public class HomeFragment extends Fragment {
 
         dialog.show();
     }
-
-    ;
 
     /**
      * Rebuilds the list of cars from the full catalogue using query + filters.

@@ -45,5 +45,21 @@
     <string name="filter_button_reset">Reset</string>
     <string name="filter_button_apply">Apply</string>
     <string name="filter_seats">Minimum seats: 1</string>
+
+    <!-- Confirm Rent Dialog -->
     <string name="hint_search_cars">Search cars</string>
+    <string name="confirm_rent_deposit">Deposit</string>
+    <string name="confirm_rent_total">Total</string>
+
+    <!-- Car Detail Card -->
+    <string name="car_card_default_make_model">Make Model</string>
+    <string name="car_card_default_luggage">2</string>
+    <string name="car_card_default_seating">5</string>
+    <string name="car_card_default_transmission">Auto</string>
+    <string name="car_card_default_fuel_type">Petrol</string>
+    <string name="car_card_rating">Rating</string>
+    <string name="car_card_price_day">S$ Price / Day</string>
+    <string name="desc_car_seat_slider">search filter slider for car seats</string>
+    <string name="desc_luggage_slider">search filter slider for luggage count</string>
+    <string name="desc_price_slider">search filter slider for max car rental price</string>
 </resources>

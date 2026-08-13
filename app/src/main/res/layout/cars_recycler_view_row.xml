@@ -9,9 +9,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="12dp"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="0dp"
         android:layout_marginEnd="12dp"
-        android:layout_marginBottom="12dp"
+        android:layout_marginBottom="24dp"
         app:cardBackgroundColor="@color/white"
         app:cardCornerRadius="20dp"
         app:cardElevation="8dp"
@@ -51,7 +51,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="12dp"
-                android:text="Make Model"
+                android:text="@string/car_card_default_make_model"
                 android:textSize="18sp"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toStartOf="@+id/carProfileImage"
@@ -92,28 +92,28 @@
                 android:id="@+id/carSeatingAmount"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="5"
+                android:text="@string/car_card_default_seating"
                 app:drawableStartCompat="@drawable/baseline_person_24" />
 
             <TextView
                 android:id="@+id/carLuggageAmount"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="2"
+                android:text="@string/car_card_default_luggage"
                 app:drawableStartCompat="@drawable/outline_luggage_24" />
 
             <TextView
                 android:id="@+id/carTransmissionType"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Auto"
+                android:text="@string/car_card_default_transmission"
                 app:drawableStartCompat="@drawable/auto_transmission_24px" />
 
             <TextView
                 android:id="@+id/carFuelType"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Petrol"
+                android:text="@string/car_card_default_fuel_type"
                 app:drawableStartCompat="@drawable/baseline_local_gas_station_24" />
 
             <com.google.android.material.divider.MaterialDivider
@@ -140,7 +140,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
-                android:text="Rating"
+                android:text="@string/car_card_rating"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/carCardDivider" />
@@ -149,7 +149,7 @@
                 android:id="@+id/priceText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="S$ Price / Day"
+                android:text="@string/car_card_price_day"
                 app:layout_constraintBottom_toBottomOf="@id/ratingText"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="@id/ratingText" />

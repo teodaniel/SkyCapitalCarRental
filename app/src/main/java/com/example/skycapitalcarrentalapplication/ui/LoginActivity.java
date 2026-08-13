@@ -10,6 +10,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.skycapitalcarrentalapplication.R;
 import com.google.android.material.textfield.TextInputEditText;
 
+import java.util.Objects;
+
 public class LoginActivity extends AppCompatActivity {
 
     private TextInputEditText editTextEmailAddress;
@@ -25,8 +27,8 @@ public class LoginActivity extends AppCompatActivity {
         Button buttonLogin = findViewById(R.id.buttonLogin);
 
         buttonLogin.setOnClickListener(v -> {
-            String email = editTextEmailAddress.getText().toString().trim();
-            String password = editTextPassword.getText().toString().trim();
+            String email = Objects.requireNonNull(editTextEmailAddress.getText()).toString().trim();
+            String password = Objects.requireNonNull(editTextPassword.getText()).toString().trim();
 
             // Validate login fields
             if (email.isEmpty()) {

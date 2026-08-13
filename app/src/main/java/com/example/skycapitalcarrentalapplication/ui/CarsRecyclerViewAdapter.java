@@ -119,7 +119,7 @@ public class CarsRecyclerViewAdapter extends ListAdapter<CarModel, CarsRecyclerV
             priceText.setText(String.format(Locale.getDefault(), "S$%.0f/day", car.getPricePerDay()));
 
             // Rating shown with a star, one decimal place (e.g. "★ 4.5").
-            reviewText.setText(String.format(Locale.getDefault(), "\u2605 %.1f", car.getRating()));
+            reviewText.setText(String.format(Locale.getDefault(), "★ %.1f", car.getRating()));
 
 
             itemView.setOnClickListener(v -> listener.onViewDetailsClick(car));

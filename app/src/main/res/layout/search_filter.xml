@@ -109,7 +109,8 @@
             android:stepSize="1"
             android:value="1"
             android:valueFrom="1"
-            android:valueTo="8" />
+            android:valueTo="8"
+            android:contentDescription="@string/desc_car_seat_slider"/>
 
         <!-- Luggage (minimum) -->
         <TextView
@@ -128,7 +129,8 @@
             android:stepSize="1"
             android:value="0"
             android:valueFrom="0"
-            android:valueTo="5" />
+            android:valueTo="5"
+            android:contentDescription="@string/desc_luggage_slider"/>
 
         <!-- Price per day (maximum) -->
         <TextView
@@ -147,7 +149,8 @@
             android:stepSize="5"
             android:value="200"
             android:valueFrom="20"
-            android:valueTo="200" />
+            android:valueTo="200"
+            android:contentDescription="@string/desc_price_slider"/>
 
         <!-- Actions -->
         <LinearLayout

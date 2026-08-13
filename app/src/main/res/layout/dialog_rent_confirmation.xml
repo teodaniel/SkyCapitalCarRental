@@ -44,7 +44,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Deposit"
+            android:text="@string/confirm_rent_deposit"
             android:textColor="@color/text_secondary"
             android:textSize="15sp" />
 
@@ -73,7 +73,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Total"
+            android:text="@string/confirm_rent_total"
             android:textColor="@color/text_primary"
             android:textSize="17sp"
             android:textStyle="bold" />
