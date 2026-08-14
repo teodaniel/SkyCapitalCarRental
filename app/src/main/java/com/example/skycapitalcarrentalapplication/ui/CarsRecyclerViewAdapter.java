@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.ListAdapter;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.skycapitalcarrentalapplication.R;
+import com.example.skycapitalcarrentalapplication.data.model.CarModel;
 
 import java.util.Locale;
 
@@ -80,7 +81,7 @@ public class CarsRecyclerViewAdapter extends ListAdapter<CarModel, CarsRecyclerV
 
     // ---------------------------------------------------------------------------------
 
-    static class CarViewHolder extends RecyclerView.ViewHolder {
+    public static class CarViewHolder extends RecyclerView.ViewHolder {
 
         private final ImageView carProfileImage;
         private final TextView carMakeAndModel;

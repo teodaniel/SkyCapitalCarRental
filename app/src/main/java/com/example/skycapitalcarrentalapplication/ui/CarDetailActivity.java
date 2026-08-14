@@ -15,6 +15,7 @@ import androidx.core.view.WindowInsetsCompat;
 
 import com.example.skycapitalcarrentalapplication.R;
 import com.example.skycapitalcarrentalapplication.data.CarRepository;
+import com.example.skycapitalcarrentalapplication.data.model.CarModel;
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.chip.Chip;
 import com.google.android.material.chip.ChipGroup;

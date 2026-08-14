@@ -1,16 +1,8 @@
 package com.example.skycapitalcarrentalapplication.ui;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -19,8 +11,15 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.FrameLayout;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProvider;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.example.skycapitalcarrentalapplication.R;
-import com.example.skycapitalcarrentalapplication.data.CarRepository;
+import com.example.skycapitalcarrentalapplication.data.model.CarModel;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.chip.Chip;
@@ -36,19 +35,17 @@ import java.util.Locale;
 import java.util.Set;
 
 /**
- * A {@link Fragment} subclass.
+ * A {@link Fragment} subclass for the Home Page ui.
+ *
+ * <p>
+ * Holds the logic for pulling cars data and showing car details modal.
+ * </p>
+ * <p>
+ * Refactored on 15/08/26
  */
 public class HomeFragment extends Fragment {
+    private HomeViewModel viewModel;
     private CarsRecyclerViewAdapter carsRecyclerViewAdapter;
-    private List<CarModel> carlArrayList = new ArrayList<>();
-
-    //=== Default Filter State ===//
-    private String query = "";
-    private final Set<String> selectedFuels = new HashSet<>();
-    private final Set<String> selectedTransmissions = new HashSet<>();
-    private int minSeats = 1;
-    private int minLuggage = 0;
-    private float maxPrice = 200f;
 
 
     @Override
@@ -65,7 +62,7 @@ public class HomeFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        carlArrayList = CarRepository.getCars();
+        viewModel = new ViewModelProvider(this).get(HomeViewModel.class);
 
         //==== initialize RecyclerView and adapter ====
         RecyclerView recyclerView = view.findViewById(R.id.carsRecyclerView);
@@ -79,6 +76,10 @@ public class HomeFragment extends Fragment {
 
         recyclerView.setAdapter(carsRecyclerViewAdapter);
 
+        //==== observe the filtered list (Room + ViewModel push updates here) ====
+        viewModel.getFilteredCars().observe(getViewLifecycleOwner(),
+                carsRecyclerViewAdapter::submitList);
+
         //==== init Search Field ====
         TextInputLayout searchLayout = view.findViewById(R.id.searchLayout);
         TextInputEditText searchInput = view.findViewById(R.id.searchInput);
@@ -90,8 +91,7 @@ public class HomeFragment extends Fragment {
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                query = s.toString().trim();
-                applySearchFilters();
+                viewModel.setQuery(s.toString());
             }
 
             @Override
@@ -102,11 +102,9 @@ public class HomeFragment extends Fragment {
         //=== Init listeners for search and search filter ===
         searchLayout.setStartIconOnClickListener(v -> hideKeyboard(searchInput));
         searchLayout.setEndIconOnClickListener(v -> showFilterSheet());
-
-        applySearchFilters();
     }
 
-    @SuppressLint("DefaultLocale")
+
     private void showFilterSheet() {
         BottomSheetDialog dialog = new BottomSheetDialog(requireContext());
 
@@ -125,86 +123,48 @@ public class HomeFragment extends Fragment {
         MaterialButton buttonReset = bottomSheetView.findViewById(R.id.buttonReset);
         MaterialButton buttonApply = bottomSheetView.findViewById(R.id.buttonApply);
 
+        // Restore state from the ViewModel
+        checkChips(fuelGroup, viewModel.getSelectedFuels());
+        checkChips(transmissionGroup, viewModel.getSelectedTransmissions());
+
         // Label live updates
-        checkChips(fuelGroup, selectedFuels);
-        checkChips(transmissionGroup, selectedTransmissions);
+        Locale locale = new Locale("en", "SG");
         seatsSlider.addOnChangeListener((s, seatCount, fromUser) ->
-                labelSeats.setText(String.format("Minimum seats: %d", (int) seatCount)));
+                labelSeats.setText(String.format(locale, "Minimum seats: %d", (int) seatCount)));
         luggageSlider.addOnChangeListener((s, luggageCount, fromUser) ->
-                labelLuggage.setText(String.format("Minimum luggage: %d", (int) luggageCount)));
+                labelLuggage.setText(String.format(locale, "Minimum luggage: %d", (int) luggageCount)));
         priceSlider.addOnChangeListener((s, price, fromUser) ->
                 labelPrice.setText(String.format(Locale.getDefault(), "Maximum price: S$%d/day", (int) price)));
 
-        seatsSlider.setValue((float) minSeats);
-        luggageSlider.setValue((float) minLuggage);
-        priceSlider.setValue(maxPrice);
+        seatsSlider.setValue((float) viewModel.getMinSeats());
+        luggageSlider.setValue((float) viewModel.getMinLuggage());
+        priceSlider.setValue(viewModel.getMaxPrice());
 
         // Ensure labels show initial values before setValue changes
-        labelSeats.setText(String.format("Minimum seats: %d", minSeats));
-        labelLuggage.setText(String.format("Minimum luggage: %d", minLuggage));
-        labelPrice.setText(String.format(Locale.getDefault(), "Maximum price: S$%d/day", (int) maxPrice));
+        labelSeats.setText(String.format(locale, "Minimum seats: %d", viewModel.getMinSeats()));
+        labelLuggage.setText(String.format(locale, "Minimum luggage: %d", viewModel.getMinLuggage()));
+        labelPrice.setText(String.format(Locale.getDefault(), "Maximum price: S$%d/day", (int) viewModel.getMaxPrice()));
 
-        buttonApply.setOnClickListener(v -> {
-            selectedFuels.clear();
-            selectedFuels.addAll(checkedChips(fuelGroup));
-            selectedTransmissions.clear();
-            selectedTransmissions.addAll(checkedChips(transmissionGroup));
-            minSeats = (int) seatsSlider.getValue();
-            minLuggage = (int) luggageSlider.getValue();
-            maxPrice = priceSlider.getValue();
-            applySearchFilters();
+        buttonApply.setOnClickListener(view -> {
+            viewModel.setFilters(
+                    checkedChips(fuelGroup),
+                    checkedChips(transmissionGroup),
+                    (int) seatsSlider.getValue(),
+                    (int) luggageSlider.getValue(),
+                    priceSlider.getValue());
             dialog.dismiss();
         });
 
-        buttonReset.setOnClickListener(v -> {
+        buttonReset.setOnClickListener(view -> {
             fuelGroup.clearCheck();
             transmissionGroup.clearCheck();
             seatsSlider.setValue(seatsSlider.getValueFrom());
             luggageSlider.setValue(luggageSlider.getValueFrom());
             priceSlider.setValue(priceSlider.getValueTo());
-
-            selectedFuels.clear();
-            selectedTransmissions.clear();
-            minSeats = (int) seatsSlider.getValueFrom();
-            minLuggage = (int) luggageSlider.getValueFrom();
-            maxPrice = priceSlider.getValueTo();
+            viewModel.resetFilters();
         });
 
         dialog.show();
-    }
-
-    /**
-     * Rebuilds the list of cars from the full catalogue using query + filters.
-     */
-    private void applySearchFilters() {
-        String searchQuery = query.toLowerCase(Locale.getDefault());
-        List<CarModel> filtered = new ArrayList<>();
-        for (CarModel car : carlArrayList) {
-            if (!searchQuery.isEmpty() && !car.getMakeAndModel().toLowerCase(Locale.getDefault()).contains(searchQuery))
-                continue;
-
-            if (!selectedFuels.isEmpty() && !selectedFuels.contains(car.getFuelType())) continue;
-
-            if (!selectedTransmissions.isEmpty() && !selectedTransmissions.contains(normalizeTransmission(car.getTransmission())))
-                continue;
-
-            if (car.getSeats() < minSeats) continue;
-
-            if (car.getLuggageCapacity() < minLuggage) continue;
-
-            if (car.getPricePerDay() > maxPrice) continue;
-
-            filtered.add(car);
-        }
-        carsRecyclerViewAdapter.submitList(filtered);
-    }
-
-    /**
-     * Maps the model's "Automatic"/"Manual" to the chip labels "Auto"/"Manual".
-     */
-    private String normalizeTransmission(String inputTransmission) {
-        return (inputTransmission != null &&
-                inputTransmission.toLowerCase(Locale.getDefault()).startsWith("auto")) ? "Auto" : "Manual";
     }
 
     /**
@@ -227,12 +187,11 @@ public class HomeFragment extends Fragment {
      * @param group    the chipGroup to check
      * @param selected the set of selected chips in string
      *
-     *                 <p>Example usage:
-     *                 <pre>
-     *                 {@code selected = {"Auto"};
-     *                 checkChips(chipGroup, selected);
-     *                 // only sets the "Auto" chip to selected view}
-     *                 </pre>
+     * <p>Example usage:</p>
+     * <pre>{@code selected = {"Auto"};
+     * checkChips(chipGroup, selected);
+     * // only sets the "Auto" chip to selected view}
+     * </pre>
      */
     private void checkChips(ChipGroup group, Set<String> selected) {
         for (int i = 0; i < group.getChildCount(); i++) {
@@ -242,8 +201,7 @@ public class HomeFragment extends Fragment {
     }
 
     private void hideKeyboard(View v) {
-        InputMethodManager imm = (InputMethodManager)
-                requireContext().getSystemService(Context.INPUT_METHOD_SERVICE);
+        InputMethodManager imm = (InputMethodManager) requireContext().getSystemService(Context.INPUT_METHOD_SERVICE);
         if (imm != null) {
             imm.hideSoftInputFromWindow(v.getWindowToken(), 0);
         }
