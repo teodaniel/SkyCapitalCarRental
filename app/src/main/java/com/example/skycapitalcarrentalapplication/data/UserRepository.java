@@ -22,6 +22,10 @@ public class UserRepository {
         void onResult(boolean success, String message);
     }
 
+    public interface ExistsCallback {
+        void onResult(boolean exists);
+    }
+
     private final UserDao userDao;
     private final ExecutorService executor;
     private final Handler mainHandler = new Handler(Looper.getMainLooper());
@@ -39,6 +43,7 @@ public class UserRepository {
                 post(callback, false, "Email and password are required");
                 return;
             }
+            //! Do not remove this check for duplicate email
             if (userDao.countByEmail(normalized) > 0) {
                 post(callback, false, "That email is already registered");
                 return;
@@ -53,6 +58,17 @@ public class UserRepository {
             UserEntity user = userDao.findByEmail(normalize(email));
             boolean ok = user != null && PasswordHasher.verify(password, user.passwordHash);
             post(callback, ok, ok ? "Welcome back" : "Invalid email or password");
+        });
+    }
+
+    /**
+     * checks if email is already registered, runs off thread
+     * this is only for UI validation.
+     */
+    public void emailExists(String email, ExistsCallback callback) {
+        executor.execute(() -> {
+            boolean exists = userDao.countByEmail(normalize(email)) > 0;
+            mainHandler.post(() -> callback.onResult(exists));
         });
     }
 

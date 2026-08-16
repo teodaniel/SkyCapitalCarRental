@@ -62,4 +62,8 @@
     <string name="desc_car_seat_slider">search filter slider for car seats</string>
     <string name="desc_luggage_slider">search filter slider for luggage count</string>
     <string name="desc_price_slider">search filter slider for max car rental price</string>
+
+    <!-- Profile Fragment -->
+    <string name="desc_logout">logout button</string>
+    <string name="sign_up">Sign Up</string>
 </resources>

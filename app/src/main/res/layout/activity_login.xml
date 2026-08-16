@@ -87,5 +87,16 @@
             android:maxWidth="320dp"
             android:layout_gravity="center_horizontal"
             android:text="@string/login" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/buttonSignup"
+            style="@style/Widget.Material3.Button.OutlinedButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minWidth="320dp"
+            android:maxWidth="320dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="8dp"
+            android:text="@string/sign_up" />
     </LinearLayout>
 </ScrollView>
