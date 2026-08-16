@@ -8,22 +8,66 @@
     android:background="@color/material_dynamic_primary10"
     tools:context=".ui.ProfileFragment">
 
-    <ImageButton
-    android:id="@+id/buttonLogout"
-    android:layout_width="48dp"
-    android:layout_height="48dp"
-    android:layout_margin="16dp"
-    android:background="?attr/selectableItemBackgroundBorderless"
-    android:contentDescription="@string/desc_logout"
-    android:src="@drawable/baseline_logout_24"
-    app:tint="@color/md_error"
-    android:layout_gravity="top|end"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/sheet_surface"
+        android:orientation="vertical"
+        android:padding="20dp"
+        tools:context=".ui.ProfileFragment">
+
+    <ImageView
+        android:id="@+id/profileImage"
+        android:layout_width="96dp"
+        android:layout_height="96dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/profile_circle_bg"
+        android:contentDescription="@string/desc_profile_image"
+        android:padding="0dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/baseline_person_24"
+        app:tint="@color/md_on_primary_container" />
 
     <TextView
-        android:layout_width="wrap_content"
+        android:id="@+id/profileEmail"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Profile fragment placeholder"
-        android:textSize="24sp"
-        android:layout_gravity="center"/>
+        android:layout_marginTop="14dp"
+        android:gravity="center"
+        android:textColor="@color/text_primary"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        tools:text="user@example.com" />
+
+    <TextView
+        android:id="@+id/profilePassword"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:gravity="center"
+        android:text="@string/hidden_password"
+        android:textColor="@color/text_secondary"
+        android:textSize="16sp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
+        android:layout_marginBottom="8dp"
+        android:text="My Rented Cars"
+        android:textColor="@color/text_primary"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rentedCarsRecyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:clipToPadding="false"
+        android:paddingBottom="12dp" />
+
+    </LinearLayout>
 
 </FrameLayout>

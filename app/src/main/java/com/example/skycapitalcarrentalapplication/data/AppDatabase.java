@@ -8,20 +8,23 @@ import androidx.room.RoomDatabase;
 import androidx.room.TypeConverters;
 
 import com.example.skycapitalcarrentalapplication.data.dao.CarDao;
+import com.example.skycapitalcarrentalapplication.data.dao.RentalDao;
 import com.example.skycapitalcarrentalapplication.data.dao.UserDao;
 import com.example.skycapitalcarrentalapplication.data.entity.CarEntity;
 import com.example.skycapitalcarrentalapplication.data.entity.UserEntity;
+import com.example.skycapitalcarrentalapplication.data.model.RentalModel;
 import com.example.skycapitalcarrentalapplication.utils.Converters;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-@Database(entities = {CarEntity.class, UserEntity.class}, version = 1, exportSchema = false)
+@Database(entities = {CarEntity.class, UserEntity.class, RentalModel.class}, version = 2, exportSchema = false)
 @TypeConverters(Converters.class)
 public abstract class AppDatabase extends RoomDatabase {
 
     public abstract CarDao carDao();
     public abstract UserDao userDao();
+    public abstract RentalDao rentalDao();
 
     private static volatile AppDatabase INSTANCE;
 
@@ -36,8 +39,6 @@ public abstract class AppDatabase extends RoomDatabase {
                                     context.getApplicationContext(),
                                     AppDatabase.class,
                                     "skycapital.db")
-                            // DEV ONLY: wipes + rebuilds on any schema change.
-                            // Replace with a real Migration before you have live user data.
                             .fallbackToDestructiveMigration()
                             .build();
                 }

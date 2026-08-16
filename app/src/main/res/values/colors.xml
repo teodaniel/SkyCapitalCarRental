@@ -38,7 +38,7 @@
 
     <!-- ================= Surfaces & shadow ================= -->
     <!-- Content sheet + back-FAB background -->
-    <color name="sheet_surface">#FFFFFF</color>
+    <color name="sheet_surface">#F4F7FC</color>
     <!-- top_sheet_shadow gradient: darkest edge -> fully transparent -->
     <color name="sheet_shadow_start">#22000000</color>
     <color name="sheet_shadow_end">#00000000</color>

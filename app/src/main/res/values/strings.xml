@@ -1,17 +1,24 @@
 <resources>
     <string name="app_name">Sky Capital Car Rental</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <!-- Bottom Nav -->
     <string name="home">Home</string>
     <string name="contact">Contact</string>
     <string name="profile">Profile</string>
+
+
+    <!-- Login  Signup -->
     <string name="log_in_title_1">Welcome to</string>
     <string name="email_hint">name@example.com</string>
     <string name="password_hint">Enter your password</string>
     <string name="login">Login</string>
+    <string name="sign_up">Sign Up</string>
+
+    <!-- Header Bar -->
     <string name="sky_capital_rentals_header">Sky Capital Rentals</string>
     <string name="daniel_teo">Daniel Teo • S1042141</string>
     <string name="car_body_type_placeholder">Body Type</string>
+    <string name="desc_logout">logout button</string>
 
     <string name="features">Features</string>
     <string name="desc_cars_for_rent_list">List of cards showing cars for rent</string>
@@ -65,6 +72,7 @@
     <string name="desc_price_slider">search filter slider for max car rental price</string>
 
     <!-- Profile Fragment -->
-    <string name="desc_logout">logout button</string>
-    <string name="sign_up">Sign Up</string>
+    <string name="hidden_password">••••••••</string>
+    <string name="desc_profile_image">Default profile icon image</string>
+    <string name="car_card_default_body_type">Body type</string>
 </resources>

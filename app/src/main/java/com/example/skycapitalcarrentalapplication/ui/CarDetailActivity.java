@@ -1,5 +1,6 @@
 package com.example.skycapitalcarrentalapplication.ui;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
@@ -14,8 +15,11 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 import com.example.skycapitalcarrentalapplication.R;
+import com.example.skycapitalcarrentalapplication.data.AppDatabase;
 import com.example.skycapitalcarrentalapplication.data.CarRepository;
+import com.example.skycapitalcarrentalapplication.data.SessionManager;
 import com.example.skycapitalcarrentalapplication.data.model.CarModel;
+import com.example.skycapitalcarrentalapplication.data.model.RentalModel;
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.chip.Chip;
 import com.google.android.material.chip.ChipGroup;
@@ -24,7 +28,9 @@ import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import java.util.Locale;
 
 public class CarDetailActivity extends AppCompatActivity {
-    /** Intent extra key: the id of the car to show. */
+    /**
+     * Intent extra key: the id of the car to show.
+     */
     public static final String EXTRA_CAR_ID = "carId";
 
     @Override
@@ -93,7 +99,10 @@ public class CarDetailActivity extends AppCompatActivity {
         rentButton.setOnClickListener(v -> showRentDialog(car));
     }
 
-    /** Builds the short description; engine size is omitted for electric cars. */
+    /**
+     * Builds the short description
+     * engine size is omitted for electric cars.
+     */
     private String buildDescription(CarModel car) {
         StringBuilder sb = new StringBuilder();
         sb.append("The ").append(car.getColor()).append(" ").append(car.getMakeAndModel())
@@ -107,16 +116,18 @@ public class CarDetailActivity extends AppCompatActivity {
         return sb.toString();
     }
 
-    /** Shows the rent-confirmation modal with a price breakdown. */
+    /**
+     * Shows the rent-confirmation modal with a price breakdown.
+     */
     private void showRentDialog(CarModel car) {
         View content = getLayoutInflater().inflate(R.layout.dialog_rent_confirmation, null);
 
-        int rentalDays = 1;   // placeholder until you add a day picker
+        int rentalDays = 1;   // TODO: future chore to add a mandatory datePicker for the user to pick the rental dates from the main screen to filter out rented cars
         double perDayTotal = car.getPricePerDay() * rentalDays;
         double total = perDayTotal + car.getDeposit();
 
         ((TextView) content.findViewById(R.id.dialogPerDayLabel))
-                .setText(String.format(Locale.getDefault(),"%s%d)", getString(R.string.price_per_day_1), rentalDays));
+                .setText(String.format(Locale.getDefault(), "%s%d)", getString(R.string.price_per_day_1), rentalDays));
         ((TextView) content.findViewById(R.id.dialogPerDayValue))
                 .setText(String.format(Locale.getDefault(), "S$%.0f", perDayTotal));
         ((TextView) content.findViewById(R.id.dialogDepositValue))
@@ -128,11 +139,25 @@ public class CarDetailActivity extends AppCompatActivity {
                 .setTitle("Confirm Rental")
                 .setView(content)
                 .setNegativeButton("Cancel", null)
-                .setPositiveButton("Confirm", (dialog, which) -> {
-                    // TODO: handle the booking (e.g. mark car unavailable, show a receipt)
-                    Toast.makeText(this, "Booking confirmed!", Toast.LENGTH_SHORT).show();
-                })
+                .setPositiveButton("Confirm", (dialog, which) -> confirmRental(car))
                 .show();
+    }
+
+    private void confirmRental(CarModel car) {
+        String email = new SessionManager(this).getEmail();
+
+        if(email == null) {
+            Toast.makeText(this, "Error: User not logged in", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        AppDatabase.getDbExecutor().execute(() -> {
+            AppDatabase.getInstance(this).rentalDao().insert(new RentalModel(email, car.getId()));
+            runOnUiThread(() -> {
+                Toast.makeText(this, "Rental confirmed", Toast.LENGTH_SHORT).show();
+                finish();
+            });
+        });
     }
 
 }
