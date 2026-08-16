@@ -1,4 +1,4 @@
-package com.example.skycapitalcarrentalapplication.ui;
+package com.example.skycapitalcarrentalapplication.ui.home;
 
 import android.content.Context;
 import android.content.Intent;
@@ -19,7 +19,6 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.skycapitalcarrentalapplication.R;
-import com.example.skycapitalcarrentalapplication.data.model.CarModel;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.chip.Chip;
@@ -28,9 +27,7 @@ import com.google.android.material.slider.Slider;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
 
-import java.util.ArrayList;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Locale;
 import java.util.Set;
 

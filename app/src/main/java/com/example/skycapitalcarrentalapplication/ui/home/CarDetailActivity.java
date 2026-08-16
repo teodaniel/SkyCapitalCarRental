@@ -1,6 +1,5 @@
-package com.example.skycapitalcarrentalapplication.ui;
+package com.example.skycapitalcarrentalapplication.ui.home;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;

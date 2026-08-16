@@ -1,4 +1,4 @@
-package com.example.skycapitalcarrentalapplication.ui;
+package com.example.skycapitalcarrentalapplication.ui.profile;
 
 import android.view.LayoutInflater;
 import android.view.View;

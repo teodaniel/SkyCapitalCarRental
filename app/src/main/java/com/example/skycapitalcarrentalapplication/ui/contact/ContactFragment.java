@@ -1,4 +1,4 @@
-package com.example.skycapitalcarrentalapplication.ui;
+package com.example.skycapitalcarrentalapplication.ui.contact;
 
 import android.app.Dialog;
 import android.content.Intent;

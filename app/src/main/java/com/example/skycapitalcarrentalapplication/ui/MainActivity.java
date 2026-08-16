@@ -16,6 +16,9 @@ import androidx.fragment.app.FragmentTransaction;
 import com.example.skycapitalcarrentalapplication.R;
 import com.example.skycapitalcarrentalapplication.data.SessionManager;
 import com.example.skycapitalcarrentalapplication.databinding.ActivityMainBinding;
+import com.example.skycapitalcarrentalapplication.ui.contact.ContactFragment;
+import com.example.skycapitalcarrentalapplication.ui.home.HomeFragment;
+import com.example.skycapitalcarrentalapplication.ui.profile.ProfileFragment;
 
 public class MainActivity extends AppCompatActivity {
 

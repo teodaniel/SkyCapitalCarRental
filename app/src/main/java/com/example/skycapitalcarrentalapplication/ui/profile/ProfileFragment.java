@@ -1,6 +1,5 @@
-package com.example.skycapitalcarrentalapplication.ui;
+package com.example.skycapitalcarrentalapplication.ui.profile;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -18,13 +17,15 @@ import com.example.skycapitalcarrentalapplication.R;
 import com.example.skycapitalcarrentalapplication.data.SessionManager;
 
 /**
- * A simple {@link Fragment} subclass.
- * Use the {@link ProfileFragment#newInstance} factory method to
- * create an instance of this fragment.
+ * Profile screen. Shows the signed-in user's email and a list of the cars they've rented.
+ *
+ * <p>
+ *     The email comes from {@link SessionManager};
+ *     Rented cars are observed from {@link ProfileViewModel} as LiveData,
+ *     so the list updates automatically when a new rental is saved.
+ * </p>
  */
 public class ProfileFragment extends Fragment {
-
-    private ProfileViewModel viewModel;
 
     public ProfileFragment() {
         // Required empty public constructor
@@ -39,7 +40,7 @@ public class ProfileFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        viewModel = new ViewModelProvider(this).get(ProfileViewModel.class);
+        ProfileViewModel viewModel = new ViewModelProvider(this).get(ProfileViewModel.class);
 
         // Email from the session; password stays masked (only the hash is stored).
         TextView emailText = view.findViewById(R.id.profileEmail);

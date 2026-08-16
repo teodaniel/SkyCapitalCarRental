@@ -12,7 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.SkyCapitalCarRentalApplication">
         <activity
-            android:name=".ui.CarDetailActivity"
+            android:name=".ui.home.CarDetailActivity"
             android:exported="false" />
         <activity
             android:name=".ui.MainActivity"
