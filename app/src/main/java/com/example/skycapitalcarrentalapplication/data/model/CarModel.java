@@ -23,13 +23,13 @@ public class CarModel {
     private final double rating;
 
     // Rental terms
-    private double pricePerDay;
-    private double deposit;
-    private String fuelPolicy;      // "Full to Full"
+    private final double pricePerDay;
+    private final double deposit;
+    private final String fuelPolicy;      // "Full to Full"
 
     // Availability & logistics
-    private boolean available;
-    private String pickupLocation;
+    private final boolean available;
+    private final String pickupLocation;
 
     public CarModel(int id, String makeAndModel, String bodyType, String color, int imageResId, String fuelType, String transmission, double engineSize, int seats, int luggageCapacity, List<String> features, double rating, double pricePerDay, double deposit, String fuelPolicy, boolean available, String pickupLocation) {
         this.id = id;

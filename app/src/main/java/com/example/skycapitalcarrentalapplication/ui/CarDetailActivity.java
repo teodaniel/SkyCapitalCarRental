@@ -116,7 +116,7 @@ public class CarDetailActivity extends AppCompatActivity {
         double total = perDayTotal + car.getDeposit();
 
         ((TextView) content.findViewById(R.id.dialogPerDayLabel))
-                .setText("Price per day (\u00d7 " + rentalDays + ")");
+                .setText(String.format(Locale.getDefault(),"%s%d)", getString(R.string.price_per_day_1), rentalDays));
         ((TextView) content.findViewById(R.id.dialogPerDayValue))
                 .setText(String.format(Locale.getDefault(), "S$%.0f", perDayTotal));
         ((TextView) content.findViewById(R.id.dialogDepositValue))

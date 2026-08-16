@@ -47,6 +47,7 @@
     <string name="filter_seats">Minimum seats: 1</string>
 
     <!-- Confirm Rent Dialog -->
+    <string name="price_per_day_1">"Price per day (× "</string>
     <string name="hint_search_cars">Search cars</string>
     <string name="confirm_rent_deposit">Deposit</string>
     <string name="confirm_rent_total">Total</string>
