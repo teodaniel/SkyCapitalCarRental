@@ -21,7 +21,6 @@ public class RentalModel {
 
     public int carId;
 
-    public RentalModel() { }
 
     @Ignore
     public RentalModel(@NonNull String userEmail, int carId) {

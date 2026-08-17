@@ -6,7 +6,6 @@ import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Patterns;
 import android.view.View;
-import android.widget.Button;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -52,6 +51,13 @@ public class LoginActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        if (new SessionManager(this).isLoggedIn()) {
+            // if the user is already logged in, go straight to the main screen
+            goToMain();
+            return;
+        }
+
         setContentView(R.layout.activity_login);
         View root = findViewById(R.id.loginScrollRoot);
         ViewCompat.setOnApplyWindowInsetsListener(root, (v, insets) -> {
@@ -85,7 +91,7 @@ public class LoginActivity extends AppCompatActivity {
     private void attemptLogin() {
         String email = textOf(editTextEmailAddress);
         String password = textOf(editTextPassword);
-        if (!validate(email, password)) return;
+        if (!isEmailAndPasswordValid(email, password)) return;
 
         setInProgress(true);
         userRepository.login(email, password, (success, message) -> {
@@ -101,7 +107,7 @@ public class LoginActivity extends AppCompatActivity {
     private void attemptSignup() {
         String email = textOf(editTextEmailAddress);
         String password = textOf(editTextPassword);
-        if (!validate(email, password)) return;
+        if (!isEmailAndPasswordValid(email, password)) return;
         if (password.length() < 6) {
             toast("Password must be at least 6 characters");
             return;
@@ -142,15 +148,17 @@ public class LoginActivity extends AppCompatActivity {
 
 
     /** field validation for both actions. */
-    private boolean validate(String email, String password) {
+    private boolean isEmailAndPasswordValid(String email, String password) {
         if (email.isEmpty()) {
             emailInputLayout.setError("Please fill in your email");
             return false;
         }
+
         if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
             emailInputLayout.setError("Please enter a valid email");
             return false;
         }
+
         if (password.isEmpty()) {
             toast("Please fill in your password");
             return false;

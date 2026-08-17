@@ -42,7 +42,7 @@ public class CarsRecyclerViewAdapter extends ListAdapter<CarModel, CarsRecyclerV
     }
 
     private static final DiffUtil.ItemCallback<CarModel> DIFF_CALLBACK =
-            new DiffUtil.ItemCallback<CarModel>() {
+            new DiffUtil.ItemCallback<>() {
 
                 @Override
                 public boolean areItemsTheSame(@NonNull CarModel oldItem, @NonNull CarModel newItem) {

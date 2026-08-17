@@ -1,10 +1,12 @@
 package com.example.skycapitalcarrentalapplication.data.entity;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
+import com.example.skycapitalcarrentalapplication.R;
 import com.example.skycapitalcarrentalapplication.data.model.CarModel;
 
 import java.util.List;
@@ -69,9 +71,14 @@ public class CarEntity {
     /**
      * CarEntity -> CarModel. Resolves the drawable name back to a resId.
      */
+    @SuppressLint("DiscouragedApi")
     public CarModel toModel(Context ctx) {
         int resId = ctx.getResources()
                 .getIdentifier(imageName, "drawable", ctx.getPackageName());
+
+        if (resId == 0) {
+            resId = R.drawable.car_mystery_vehicle_l;
+        }
         return new CarModel(id, makeAndModel, bodyType, color, resId, fuelType, transmission,
                 engineSize, seats, luggageCapacity, features, rating, pricePerDay, deposit, fuelPolicy,
                 available, pickupLocation);

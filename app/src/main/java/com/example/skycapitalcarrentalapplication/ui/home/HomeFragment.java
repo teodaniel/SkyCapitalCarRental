@@ -42,7 +42,6 @@ import java.util.Set;
  */
 public class HomeFragment extends Fragment {
     private HomeViewModel viewModel;
-    private CarsRecyclerViewAdapter carsRecyclerViewAdapter;
 
 
     @Override
@@ -65,7 +64,7 @@ public class HomeFragment extends Fragment {
         RecyclerView recyclerView = view.findViewById(R.id.carsRecyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(requireContext()));
 
-        carsRecyclerViewAdapter = new CarsRecyclerViewAdapter(car -> {
+        CarsRecyclerViewAdapter carsRecyclerViewAdapter = new CarsRecyclerViewAdapter(car -> {
             Intent intent = new Intent(requireContext(), CarDetailActivity.class);
             intent.putExtra(CarDetailActivity.EXTRA_CAR_ID, car.getId());
             startActivity(intent);
