@@ -75,4 +75,5 @@
     <string name="hidden_password">••••••••</string>
     <string name="desc_profile_image">Default profile icon image</string>
     <string name="car_card_default_body_type">Body type</string>
+    <string name="my_rented_cars">My Rented Cars</string>
 </resources>
